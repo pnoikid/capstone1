@@ -24,6 +24,7 @@ const App = () => {
     <div>
       <h1>Store</h1>
       <Login />
+       <AllProducts />
       <ul>
         {items.map(item => (
           <li key={item.id}>{item.title}, {item.image}</li>
