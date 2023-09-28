@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
- import { fetchSingleProduct } from "../api/index.js";
 import { useParams, Link } from "react-router-dom";
 
 
@@ -11,7 +10,7 @@ export default function SingleProduct() {
   useEffect(() => {
     async function singleProduct() {
       try {
-        const data = await fetchSingleProduct(params.productId); 
+        const data = await fetchSingleProduct(params.productId);
         setSingleProduct(data);
       } catch (error) {
         setError(error);
