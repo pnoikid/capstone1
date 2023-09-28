@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
-import { fetchProducts } from "../api";
 import { useNavigate } from "react-router-dom"
 function AllProducts() {
-  const [products, setProducts] = useState([]);//this will show a list of all products
+  const [products, setProducts] = useState([]);
   const navigate = useNavigate()
-  useEffect(() => { // you are using a hook
-    async function ProductsFetch() { // this function will return a promise
+  useEffect(() => {
+    async function ProductsFetch() {
       try {
         const data = await fetchProducts();
         setProducts(data);
@@ -16,7 +15,7 @@ function AllProducts() {
     ProductsFetch();
   }, []);
   console.log("product", products);
-  const handleClick=(id) => { //an instance method used to
+  const handleClick = (id) => {
     navigate(`/products/${id}`)
   }
   return (
@@ -30,7 +29,7 @@ function AllProducts() {
             <div>{product.price}</div>
             <div>{product.description}</div>
             <div>{product.category}</div>
-            <button onClick={() =>handleClick(product.id)}>See Details</button>
+            <button onClick={() => handleClick(product.id)}>See Details</button>
           </div>
         );
       })}
