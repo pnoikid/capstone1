@@ -14,6 +14,7 @@ function AllProducts() {
     }
     ProductsFetch();
   }, []);
+  
   console.log("product", products);
   const handleClick = (id) => {
     navigate(`/products/${id}`)
