@@ -10,18 +10,18 @@ export default function SingleProduct() {
   useEffect(() => {
     async function singleProduct() {
       try {
-        const data = await fetchSingleProduct(params.productId);
+        const data = await singleProduct(params.productId);
         setSingleProduct(data);
       } catch (error) {
         setError(error);
       }
     }
     singleProduct();
-  }, []);
+  }, [params.productId]);
   console.log(singleProduct, "This is for a Single Product");
   return (
     <div>
-      <h1>Hello World</h1>
+      <h1>Item</h1>
       <img src={singleProduct.image} />
       <div>{singleProduct.title}</div>
       <div>{singleProduct.price}</div>
