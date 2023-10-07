@@ -1,28 +1,27 @@
 import { useState } from "react"
+import { useNavigate } from 'react-router-dom';
+import { loginUser } from "./api";
 
-const Login = () =>{
-const [username, setUsername] = useState('');
-const [password, setPassword] = useState('');
-
-const handleSubmit = async () => {
+const Login = ({ userToken, setUserToken }) => { 
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginMessage, setLoginMessage] = useState(""); 
+  const navigate = useNavigate(); 
+  
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await  fetch('https://fakestoreapi.com/auth/login',{
-        method:'POST',
-        headers: {
-            'Content-Type': 'application/json',
-          },
-        body:JSON.stringify({
-            username: "JohnDoe",
-            password: "password",
-        }),
-    });
-    const results = await response.json()
-    const userToken = results.token;
-    setState({ userToken });
-    
-
-} ;
-
+    try {
+      const results = await loginUser(username, password);
+      if (results && results.token) {
+        setUserToken(results.token); 
+        setLoginMessage("Logged in successfully!"); 
+        navigate('/'); // Navigate to home page after successful login
+      }
+    } catch (error) {
+      setLoginMessage("Error during login"); // Display error to user
+      console.error(error);
+    }
+  };
 
         return(
             
@@ -47,7 +46,4 @@ const handleSubmit = async () => {
 }
 
 
-
-
-
-        export default Login
+ export default Login
