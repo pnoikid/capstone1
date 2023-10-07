@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { fetchSingleProduct } from "./api";
+import { fetchSingleProduct } from "./api.js";
 
 export default function SingleProduct() {
   const [singleProduct, setSingleProduct] = useState([]);
