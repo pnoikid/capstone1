@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchProducts} from "./api.js";
+import { fetchProducts} from "../../api/api.js";
 
 
 function AllProducts() {
