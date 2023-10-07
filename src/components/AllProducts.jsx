@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { fetchProducts} from "./api";
+
 
 function AllProducts() {
   const [products, setProducts] = useState([]);
@@ -9,7 +11,7 @@ function AllProducts() {
   useEffect(() => {
     async function ProductsFetch() {
       try {
-        const data = await setProducts();
+        const data = await fetchProducts();
         setProducts(data);
         setLoading(false);
       } catch (error) {
