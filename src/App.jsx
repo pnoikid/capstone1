@@ -9,11 +9,11 @@ import "./AllProducts.css";
 
 const App = () => {
   const [userToken, setUserToken] = useState(null);
-​
+
   const handleLogout = () => {
     setUserToken(null);
   };
-​
+
   return (
     <div>
       <h1>Store</h1>
