@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Route, Routes, Link } from "react-router-dom";
-import AllProducts from "./components/AllProducts";
-import Login from "./components/Login";
-import Cart from "./components/Cart";
-import SingleProduct from "./components/SingleProduct";
-import "./index.css";
+import AllProducts from "./src/components/AllProducts";
+import Login from "./src/components/Login";
+import Cart from "./src/components/Cart";
+import SingleProduct from "./src/components/SingleProduct";
+// import "./index.css";
 import "./AllProducts.css";
 
 const App = () => {
